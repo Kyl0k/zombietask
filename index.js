@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+
+if (process.env.NODE_ENV === "development") {
+  const result = require("dotenv").config();
+  if (result.error) throw result.error;
+}
 
 const connected = () => {
   const app = require("./app");
