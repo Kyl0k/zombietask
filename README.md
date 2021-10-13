@@ -1,6 +1,6 @@
 # zombietask
 ENVS REQUIRED:
-PORT
+PORT,
 DATABASE_URL
 
 Database used in this project was MongoDB.
