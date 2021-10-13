@@ -20,6 +20,19 @@ exports.getZombies = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getZombieItems = catchAsync(async (req, res, next) => {
+  const {
+    params: { zombieId },
+  } = req;
+  const zombie = await Zombie.find(zombieId).select(["items"]);
+  ifNotFound(zombie, "Zombie");
+  const { _id, ...zombieDetails } = JSON.parse(JSON.stringify(zombie));
+  return res.status(200).json({
+    status: "success",
+    data: { zombieDetails },
+  });
+});
+
 exports.editZombieById = catchAsync(async (req, res, next) => {
   const {
     params: { zombieId },

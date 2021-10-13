@@ -16,6 +16,8 @@ router
   .delete(zombieController.removeZombieById)
   .put(validate(validation.zombieName), zombieController.editZombieById);
 
+router.route("/zombie/:zombieId/items").get(zombieController.getZombieItems);
+
 router
   .route("/zombie/:zombieId/value")
   .get(zombieController.getZombieValueById);

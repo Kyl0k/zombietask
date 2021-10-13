@@ -8,14 +8,15 @@ describe("zombie routes", () => {
       { path: "/zombie/:zombieId", method: "get" },
       { path: "/zombie/:zombieId", method: "put" },
       { path: "/zombie/:zombieId", method: "delete" },
+      { path: "/zombie/:zombieId/items", method: "get" },
       { path: "/zombie/:zombieId/value", method: "get" },
       { path: "/zombie/:zombieId/:itemId", method: "put" },
       { path: "/zombie/:zombieId/:itemId", method: "delete" },
     ];
     for (const route of routes) {
-      const match = router.stack.find((s) => {
-        s.route.path === route.path && s.route.methods[route.method];
-      });
+      const match = router.stack.find(
+        (s) => s.route.path === route.path && s.route.methods[route.method]
+      );
       expect(match).toBeTruthy();
     }
   });
