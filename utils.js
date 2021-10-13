@@ -32,7 +32,7 @@ const ifNotFound = (element, elmentName) => {
 
 const validateItems = async (items, props) => {
   if (!(Array.isArray(items) && items.length <= 5)) {
-    props.message = `Path items  is not an Array or is longer than the maximum allowed lenght (5)`;
+    props.message = `Path items is not an Array or is longer than the maximum allowed lenght (5)`;
     return false;
   }
   return true;
